@@ -1,6 +1,128 @@
 
-.tarefa{
-    margin-top: 20px;
-    border: 2px solid #111111;
+.div_lista_tarefas{
+
+    width: 70%;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 40px -30px rgba(0, 0, 0, 0.5);
+
 }
 
+.titulo{
+    color: white;
+    text-align: center;
+    padding: 5px;
+    background-color: #0500FF;
+    border-radius: 10px 10px 0px 0px;
+}
+
+
+.div_botao_principal{
+
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.link_adicionar{
+    text-decoration: none;
+    color: inherit;
+}
+
+    
+.botao_principal_adicionar {
+    width: 30%;
+    height: 60px;
+    border: 3px solid #6200ea;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 1.2em;
+    font-weight: 550;
+  }
+  
+  .botao_principal_adicionar:hover {
+    background: #6200ea;
+    color: white;
+    font-size: 1.5em;
+  }
+  
+
+
+
+
+
+
+.tarefa{
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    border-bottom: dashed 2px #DFDFDF;
+}
+
+.tarefa_part_titulo{
+
+    display: flex;
+    align-items: center;
+    
+}
+
+.tarefa_titulo{
+
+    width: 90%;
+    text-align: left;
+    
+}
+
+.div_botoes{
+
+    
+
+}
+
+.botao_editar{
+
+    border: none;
+    cursor: pointer;
+    background-color: #0500FF;
+    border-radius: 5px;
+
+}
+
+.botao_excluir{
+
+    border: none;
+    cursor: pointer;
+    background-color: #e10000;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+
+.imagem {
+
+    width: 30px;
+    height: 30px;
+
+}
+
+.div_info{
+
+    display: flex;
+    margin-top: 10px;
+
+}
+
+
+.descricao{
+    
+    width: 65%;
+    text-align: left;
+
+}
+
+.div_dados_criacao{
+
+}
