@@ -29,6 +29,15 @@ export const tarefaRouter = router({
   listar: publicProcedure.query( async () => {
     return {tarefas} }),
 
+
+    buscarPorId: publicProcedure
+  .input(z.object({ id: z.string() }))
+  .query( async ({ input }) => {
+    const tarefa = tarefas.find(t => t.id === input.id);
+    if (!tarefa){ throw new Error('Tarefa não encontrada')};
+    return tarefa;
+  }),
+
   criar: publicProcedure
     .input(z.object({
       titulo: z.string(),
