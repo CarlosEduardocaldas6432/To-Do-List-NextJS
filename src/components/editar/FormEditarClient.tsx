@@ -1,6 +1,6 @@
 'use client';
  
-import styles from "../../css/components/form/page.module.css";
+import styles from "../../css/form/page.module.css";
 import React, { useState, FormEvent } from 'react';
 
 type Props = {
