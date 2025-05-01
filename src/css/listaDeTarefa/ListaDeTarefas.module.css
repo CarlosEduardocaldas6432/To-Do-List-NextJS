@@ -3,11 +3,16 @@
 
     width: 70%;
     margin: auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 40px -30px rgba(0, 0, 0, 0.5);
 
 }
+
+
 
 .titulo{
     color: white;
@@ -15,6 +20,19 @@
     padding: 5px;
     background-color: #0500FF;
     border-radius: 10px 10px 0px 0px;
+}
+
+
+.error_excluir{
+
+width: 30%;
+border: #e10000 solid 3px;
+border-radius: 4px;
+text-align: center;
+padding: 4px;
+margin: auto;
+margin-top: 15px;
+
 }
 
 
@@ -29,6 +47,8 @@
     text-decoration: none;
     color: inherit;
 }
+
+
 
     
 .botao_principal_adicionar {
@@ -76,11 +96,7 @@
     
 }
 
-.div_botoes{
 
-    
-
-}
 
 .botao_editar{
 
@@ -123,6 +139,4 @@
 
 }
 
-.div_dados_criacao{
 
-}

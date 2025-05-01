@@ -1,13 +1,20 @@
 import ListaDeTarefasClient from "@/components/ListaDeTarefasClient";
-import tarefas from "@/data/constants/tarefas";
+import { appRouter } from "@/server/trpc/router";
+import { createCaller } from "@/utils/createCaller";
+
+
 
 export default async function ListaDeTarefasServer() {
-  // Aqui poderia ser uma chamada a um banco de dados
-  const lista = tarefas;
+
+
+  const caller = createCaller(appRouter);
+  const data = await caller.tarefa.listar();
+  console.log(data);
+
 
   return (
     <section>
-      <ListaDeTarefasClient tarefas={lista} />
+      <ListaDeTarefasClient data={data.tarefas} />
     </section>
   );
 }

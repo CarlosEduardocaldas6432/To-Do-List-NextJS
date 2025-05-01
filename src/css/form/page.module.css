@@ -8,6 +8,32 @@
     
   }
 
+  .error_adicionar{
+
+    width: 100%;
+    border: #e10000 solid 3px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 4px;
+    margin: auto;
+    margin-bottom: 10px;
+    
+    }
+
+    .sucesso_adicionar{
+
+      width: 100%;
+      border: #7fe100 solid 3px;
+      border-radius: 4px;
+      text-align: center;
+      padding: 4px;
+      margin: auto;
+      margin-bottom: 10px;
+      
+
+    }
+    
+
   .titulo{
 
     margin-bottom: 10px;

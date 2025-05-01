@@ -1,31 +1,41 @@
 'use client';
-import { useParams } from 'next/navigation';
 import { trpc } from '@/utils/trpc';
 import styles from "../../css/form/page.module.css";
 import React, { useState, FormEvent, useEffect } from 'react';
 import Link from 'next/link';
+import Tarefa from '@/data/model/Tarefa';
+
+interface Props {
+  tarefa: Tarefa;
+}
+
+export default  function FormEditarClient({tarefa} : Props)  {
 
 
-
-export default  function FormEditarClient(){
-
-  const params = useParams();
-  const idParam = params.id;
-  const id: string = Array.isArray(idParam) ? idParam[0] : idParam!;
-  
-  const {data} =  trpc.tarefa.buscarPorId.useQuery( {id:id} );
+  const data =  tarefa;
 
     const [titulo, setTitulo] = useState<string>("");    
     const [descricao, setDescricao] = useState<string>(""); 
+    const [errorAtualiza, setErrorAtualiza] = useState(false);
+    const [sucessoAtualiza, setSucessoAtualiza] = useState(false);
 
 
         const { mutate } = trpc.tarefa.atualizar.useMutation({
           
           onSuccess: (data) => {
-            console.log("Tarefa criada:", data);
+            console.log("Tarefa Atualizada:", data);
+            setErrorAtualiza(false);
+            setSucessoAtualiza(false);
+    
+            setSucessoAtualiza(true);
           },
           onError: (error) => {
-            console.error("Erro ao criar tarefa:", error);
+            console.error("Erro em Atualizar Tarefa:", error);
+
+            setSucessoAtualiza(false);
+            setErrorAtualiza(false);
+    
+            setErrorAtualiza(true);
           },
         });
 
@@ -42,7 +52,7 @@ export default  function FormEditarClient(){
 
         const handleCriarTarefa = () => {
           mutate({ 
-            id: id,
+            id: tarefa.id,
             titulo: titulo, 
             descricao: descricao 
           });
@@ -60,6 +70,22 @@ export default  function FormEditarClient(){
     return (
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit}>
+
+          
+        {errorAtualiza && (
+                  <div className={styles.error_excluir}>
+                    <p>Erro em Atualizar Tarefa</p>
+                  </div>
+                )}
+
+
+              {sucessoAtualiza && (
+                  <div className={styles.sucesso_adicionar}>
+                  <p>Tarefa Atualizada</p>  
+                  </div>
+                )}
+
+
           <h2 className={styles.titulo}>Editar</h2>
           
           <div className={styles.campo}>

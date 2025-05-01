@@ -9,15 +9,27 @@ import React, { useState, FormEvent } from 'react';
 export default function Adicionar(){
     const [titulo, setTitulo] = useState<string>('');    
     const [descricao, setDescricao] = useState<string>(''); 
+    const [errorAdicionar, setErrorAdicionar] = useState(false);
+    const [sucessoAdicionar, setSucessoAdicionar] = useState(false);
 
 
     const { mutate } = trpc.tarefa.criar.useMutation({
       
       onSuccess: (data) => {
         console.log("Tarefa criada:", data);
+        setErrorAdicionar(false);
+        setSucessoAdicionar(false);
+
+        setSucessoAdicionar(true);
       },
       onError: (error) => {
         console.error("Erro ao criar tarefa:", error);
+        
+        setSucessoAdicionar(false);
+        setErrorAdicionar(false);
+
+        setErrorAdicionar(true);
+
       },
     });
   
@@ -45,6 +57,20 @@ export default function Adicionar(){
     return (
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit}>
+
+              {errorAdicionar && (
+                  <div className={styles.error_excluir}>
+                  <p>ATENÇÃO: erro ao adicionar tarefa</p>  
+                  </div>
+                )}
+
+
+              {sucessoAdicionar && (
+                  <div className={styles.sucesso_adicionar}>
+                  <p>Sucesso em adicionar tarefa</p>  
+                  </div>
+                )}
+
           <h2 className={styles.titulo}>Nova Tarefa</h2>
           
           <div className={styles.campo}>
