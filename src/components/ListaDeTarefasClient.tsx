@@ -7,7 +7,7 @@ import styles from "@/css/listaDeTarefa/ListaDeTarefas.module.css";
 import Image from "next/image";
 import formataData from "@/utils/FormataData";
 import Link from "next/link";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Props {
   data: Tarefa[]
@@ -17,6 +17,9 @@ export default function ListaDeTarefasClient({data} : Props  ) {
 
   const [errorExcluir, setErrorExcluir] = useState(false);
   const [tarefas, setTarefas] = useState<Tarefa[]>(data);
+  const [visibleCount, setVisibleCount] = useState(7);
+
+  const tarefasVisiveis = tarefas.slice(0, visibleCount);
 
   const utils = trpc.useUtils();
   
@@ -77,6 +80,33 @@ export default function ListaDeTarefasClient({data} : Props  ) {
     );
   }
 
+
+  useEffect(() => {
+    function handleScroll() {
+      const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+      if (nearBottom && visibleCount < tarefas.length) {
+        setVisibleCount(prev => prev + 5); // carrega mais 5 por vez
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [visibleCount, tarefas.length]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
 
     <div className={styles.div_lista_tarefas}>
@@ -95,7 +125,7 @@ export default function ListaDeTarefasClient({data} : Props  ) {
        Adicionar Tarefa </button></Link> 
     </div>
     <ul className={styles.lista}>
-      {tarefas.map(tarefa => (
+      {tarefasVisiveis.map(tarefa => (
         <li className={styles.tarefa} key={tarefa.id}>
           {renderizarTarefa(tarefa)}
         </li>
