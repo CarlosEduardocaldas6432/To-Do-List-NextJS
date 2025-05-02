@@ -39,7 +39,7 @@ Siga os passos abaixo para rodar o projeto localmente:
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seu-usuario/todolistnext.git
+   git clone https://github.com/CarlosEduardocaldas6432/To-Do-List-NextJS.git
    ```
 2. **Navegue até o diretório do projeto**:
    ```bash
