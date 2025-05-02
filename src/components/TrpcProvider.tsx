@@ -2,7 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
-import { trpc } from '@/utils/trpc'; // Ajuste o caminho conforme sua estrutura
+import { trpc } from '@/utils/trpc'; 
 import { useState } from 'react';
 
 export default function TrpcProvider({

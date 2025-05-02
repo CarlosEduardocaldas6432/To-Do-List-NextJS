@@ -10,20 +10,7 @@ export interface Tarefa {
   dataAtualizacao: string;
 }
 
-let tarefas: Tarefa[] = [    {
-  id: "1a2b3c",
-  titulo: "Revisar relatório financeiro",
-  descricao: "Analisar as despesas do trimestre e identificar economias.",
-  dataCriacao: "2025-04-01T09:00:00.000Z",
-  dataAtualizacao: "2025-04-03T14:30:00.000Z"
-},
-{
-  id: "4d5e6f",
-  titulo: "Atualizar lista de contatos",
-  descricao: "Adicionar novos clientes e remover inativos.",
-  dataCriacao: "2025-04-02T10:15:00.000Z",
-  dataAtualizacao: "2025-04-02T10:15:00.000Z"
-}];
+let tarefas: Tarefa[] = [];
 
 export const tarefaRouter = router({
   listar: publicProcedure.query( async () => {

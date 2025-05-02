@@ -6,6 +6,7 @@ import React, { useState, FormEvent } from 'react';
 
 
 
+
 export default function Adicionar(){
     const [titulo, setTitulo] = useState<string>('');    
     const [descricao, setDescricao] = useState<string>(''); 
@@ -20,7 +21,11 @@ export default function Adicionar(){
         setErrorAdicionar(false);
         setSucessoAdicionar(false);
 
-        setSucessoAdicionar(true);
+        setTimeout(() => {
+          setSucessoAdicionar(true);
+        }, 300);
+
+        
       },
       onError: (error) => {
         console.error("Erro ao criar tarefa:", error);
@@ -28,7 +33,14 @@ export default function Adicionar(){
         setSucessoAdicionar(false);
         setErrorAdicionar(false);
 
-        setErrorAdicionar(true);
+        setTimeout(() => {
+          setErrorAdicionar(true);
+        }, 300);
+        
+        
+       
+
+        
 
       },
     });
@@ -81,6 +93,7 @@ export default function Adicionar(){
               value={titulo}
               onChange={e => setTitulo(e.target.value)}
               required
+
             />
           </div>
   
@@ -90,6 +103,7 @@ export default function Adicionar(){
               id="description"
               value={descricao}
               onChange={e => setDescricao(e.target.value)}
+
             />
           </div>
   

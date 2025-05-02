@@ -15,10 +15,9 @@
 
 
 .titulo{
-    color: white;
     text-align: center;
-    padding: 5px;
-    background-color: #0500FF;
+    font-size: 30px;
+    padding: 15px;
     border-radius: 10px 10px 0px 0px;
 }
 
@@ -32,6 +31,8 @@ text-align: center;
 padding: 4px;
 margin: auto;
 margin-top: 15px;
+-webkit-animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
 }
 
@@ -79,19 +80,23 @@ margin-top: 15px;
     width: 95%;
     margin: auto;
     margin-top: 20px;
-    border-bottom: dashed 2px #DFDFDF;
+    background-color: #e8eef4;
+    border-radius: 10px;
+    box-shadow: 0 2px 40px -25px rgba(0, 0, 0, 0.5);
+    list-style-type: none;
 }
 
 .tarefa_part_titulo{
 
     display: flex;
     align-items: center;
+    padding: 10px;
     
 }
 
 .tarefa_titulo{
 
-    width: 90%;
+    width: 80%;
     text-align: left;
     
 }
@@ -101,42 +106,77 @@ margin-top: 15px;
 .botao_editar{
 
     border: none;
+    padding: 8px;
     cursor: pointer;
-    background-color: #0500FF;
+    background-color: #34a9fc;
+    margin-right: 10px;
     border-radius: 5px;
+    color: white;
+    transition: 0.5s;
 
+}
+
+.botao_editar:hover{
+    background-color: #3193d8;
 }
 
 .botao_excluir{
 
     border: none;
+    padding: 8px;
     cursor: pointer;
-    background-color: #e10000;
+    background-color: #e12d00;
     border-radius: 5px;
-    margin-left: 10px;
+    color: white;
+    transition: 0.5s;
 }
 
+.botao_excluir:hover {
 
-.imagem {
-
-    width: 30px;
-    height: 30px;
-
+    background-color: rgb(198, 21, 1);
 }
+
 
 .div_info{
 
     display: flex;
     margin-top: 10px;
+    padding: 10px;
 
 }
 
 
 .descricao{
     
-    width: 65%;
+    width: 60%;
     text-align: left;
 
 }
 
+
+
+@-webkit-keyframes slide-in-fwd-center {
+    0% {
+      -webkit-transform: translateZ(-1400px);
+              transform: translateZ(-1400px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-fwd-center {
+    0% {
+      -webkit-transform: translateZ(-1400px);
+              transform: translateZ(-1400px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+  }
 

@@ -1,10 +1,9 @@
-// src/components/ListaDeTarefasClient.tsx
+
 'use client';
 
 import { trpc } from '@/utils/trpc';
 import Tarefa from "@/data/model/Tarefa";
 import styles from "@/css/listaDeTarefa/ListaDeTarefas.module.css";
-import Image from "next/image";
 import formataData from "@/utils/FormataData";
 import Link from "next/link";
 import { useEffect, useState } from 'react';
@@ -51,14 +50,9 @@ export default function ListaDeTarefasClient({data} : Props  ) {
         <h2 className={styles.tarefa_titulo}>{tarefa.titulo}</h2>
 
         <div className={styles.div_botoes}>
-          <button className={styles.botao_editar}><Link className={styles.link_adicionar} href={`/editar/${tarefa.id}`}>
-          
-            <Image width={30}  height={30} className={styles.imagem} src="/escreva.svg" alt="editar" />
-          
-          </Link>
-          </button>
+          <Link className={styles.link_adicionar} href={`/editar/${tarefa.id}`}> <button className={styles.botao_editar}> <p>Editar</p> </button>  </Link>
           <button className={styles.botao_excluir} onClick={() => excluirTarefa.mutate({ id: tarefa.id })}>
-          <Image  width={30}  height={34} className={styles.imagem} src="/lixeira.svg" alt="Excluir" />
+           <p>Excluir</p>
           </button>
         </div>
         </div>
@@ -85,7 +79,7 @@ export default function ListaDeTarefasClient({data} : Props  ) {
     function handleScroll() {
       const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
       if (nearBottom && visibleCount < tarefas.length) {
-        setVisibleCount(prev => prev + 5); // carrega mais 5 por vez
+        setVisibleCount(prev => prev + 5); 
       }
     }
 
@@ -94,18 +88,7 @@ export default function ListaDeTarefasClient({data} : Props  ) {
   }, [visibleCount, tarefas.length]);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+ console.log(tarefasVisiveis);
 
   return (
 
