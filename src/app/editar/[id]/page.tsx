@@ -5,12 +5,7 @@ export default async function Editar({
   } : {
     params: Promise<{ id: string}>
   }) {
-
-   
     const { id }  = await params;
-    
-    
-
     return (
         <div>
             <FormEditarServer props={id} /> 

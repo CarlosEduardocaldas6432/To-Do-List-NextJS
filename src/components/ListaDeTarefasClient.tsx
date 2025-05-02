@@ -87,9 +87,6 @@ export default function ListaDeTarefasClient({data} : Props  ) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [visibleCount, tarefas.length]);
 
-
- console.log(tarefasVisiveis);
-
   return (
 
     <div className={styles.div_lista_tarefas}>

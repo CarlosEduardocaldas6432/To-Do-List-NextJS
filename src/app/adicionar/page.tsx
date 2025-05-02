@@ -37,11 +37,6 @@ export default function Adicionar(){
           setErrorAdicionar(true);
         }, 300);
         
-        
-       
-
-        
-
       },
     });
   
