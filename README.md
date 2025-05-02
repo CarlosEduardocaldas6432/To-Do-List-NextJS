@@ -70,37 +70,6 @@ Cada tarefa é exibida com:
 - **Descrição** (se fornecida).
 - **Data de Criação** e **Última Atualização** formatadas.
 
-## Estrutura do Projeto
-
-Aqui está uma visão geral da organização do código:
-
-```
-todolistnext/
-├── /components             # Componentes React reutilizáveis
-│   └── ListaDeTarefasClient.tsx  # Componente client-side para exibir e interagir com tarefas
-├── /data                   # Modelos e interfaces
-│   └── /model
-│       └── Tarefa.ts       # Definição da interface Tarefa
-├── /pages                  # Páginas da aplicação Next.js
-│   └── api                 # Rotas de API
-│       └── trpc            # Endpoint tRPC
-│           └── route.ts    # Handler das requisições tRPC
-├── /server                 # Lógica do servidor
-│   └── /trpc
-│       ├── router.ts       # Configuração do router tRPC
-│       └── tarefa.ts       # Definição das rotas relacionadas a tarefas
-├── /utils                  # Utilitários e helpers
-│   ├── trpc.ts             # Cliente tRPC
-│   ├── createCaller.ts     # Função para criar chamadas tRPC no servidor
-│   └── FormataData.ts      # Função para formatar datas
-├── /css                    # Estilos CSS
-│   └── listaDeTarefa
-│       └── ListaDeTarefas.module.css  # Estilos modulares para a lista de tarefas
-├── ListaDeTarefasServer.tsx  # Componente server-side para buscar tarefas
-├── TrpcProvider.tsx        # Provedor de contexto tRPC e React Query
-├── package.json            # Configuração do projeto e dependências
-└── README.md               # Documentação do projeto (este arquivo)
-```
 
 ### Detalhes Técnicos
 - **tRPC**: As operações CRUD (criar, listar, atualizar, excluir) são definidas no arquivo `tarefa.ts` e acessadas via cliente tRPC.
